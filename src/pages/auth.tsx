@@ -17,19 +17,14 @@ export const Auth = () => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      let user;
       if (form.newAccount) {
-        user = await authService.createUserWithEmailAndPassword(
+        await authService.createUserWithEmailAndPassword(
           form.email,
           form.password
         );
       } else {
-        user = await authService.signInWithEmailAndPassword(
-          form.email,
-          form.password
-        );
+        await authService.signInWithEmailAndPassword(form.email, form.password);
       }
-      console.log(user);
     } catch (error) {
       setForm({ ...form, error: error.message });
     }
