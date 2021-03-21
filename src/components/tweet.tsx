@@ -1,14 +1,20 @@
 import React, { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
-import { authService, dbService } from '../firebase';
+import { authService, dbService, storageService } from '../firebase';
 
 interface ITweetProps {
   id: string;
   text?: string;
   createdAt?: number;
   creatorId?: string;
+  attachmentUrl?: string;
 }
 
-export const Tweet: React.FC<ITweetProps> = ({ id, text, creatorId }) => {
+export const Tweet: React.FC<ITweetProps> = ({
+  id,
+  text,
+  creatorId,
+  attachmentUrl,
+}) => {
   const [editing, setEditing] = useState({ isEditing: false, tweet: text });
   const toggleEditing = (
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
@@ -47,6 +53,14 @@ export const Tweet: React.FC<ITweetProps> = ({ id, text, creatorId }) => {
       ) : (
         <>
           <h4>{text}</h4>
+          {attachmentUrl && (
+            <img
+              src={attachmentUrl}
+              alt="attachment"
+              width="50px"
+              height="50px"
+            />
+          )}
           {creatorId === authService.currentUser?.uid && (
             <>
               <button
@@ -56,6 +70,9 @@ export const Tweet: React.FC<ITweetProps> = ({ id, text, creatorId }) => {
                   );
                   if (ok) {
                     await dbService.doc(`tweets/${id}`).delete();
+                    if (attachmentUrl) {
+                      await storageService.refFromURL(attachmentUrl).delete();
+                    }
                   }
                 }}
               >
