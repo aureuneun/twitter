@@ -27,7 +27,6 @@ export const App = () => {
       ) : (
         <span>Initialization...</span>
       )}
-      <footer>&copy; {new Date().getFullYear()} Twitter</footer>
     </>
   );
 };

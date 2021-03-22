@@ -27,9 +27,9 @@ export const Home = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div>
+    <div className="container">
       <TweetFactory />
-      <div>
+      <div style={{ marginTop: 30 }}>
         {tweets.map((tweet) => (
           <Tweet key={tweet.id} {...tweet} />
         ))}

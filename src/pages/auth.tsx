@@ -1,3 +1,9 @@
+import {
+  faGithub,
+  faGoogle,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { MouseEvent } from 'react';
 import { AuthForm } from '../components/auth-form';
 import firebase, { authService } from '../firebase';
@@ -18,14 +24,20 @@ export const Auth = () => {
     }
   };
   return (
-    <div>
+    <div className="authContainer">
+      <FontAwesomeIcon
+        icon={faTwitter}
+        color={'#04AAFF'}
+        size="3x"
+        style={{ marginBottom: 30 }}
+      />
       <AuthForm />
-      <div>
-        <button name="google" onClick={onClick}>
-          Continue with Google
+      <div className="authBtns">
+        <button name="google" onClick={onClick} className="authBtn">
+          Continue with Google <FontAwesomeIcon icon={faGoogle} />
         </button>
-        <button name="github" onClick={onClick}>
-          Continue with Github
+        <button name="github" onClick={onClick} className="authBtn">
+          Continue with Github <FontAwesomeIcon icon={faGithub} />
         </button>
       </div>
     </div>

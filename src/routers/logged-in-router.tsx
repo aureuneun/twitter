@@ -14,11 +14,22 @@ export const LoggedInRouter = () => {
     <Router>
       <Nav />
       <Switch>
-        {commonRoutes.map((route) => (
-          <Route exact key={route.path} path={route.path}>
-            {route.component}
-          </Route>
-        ))}
+        <div
+          style={{
+            maxWidth: 890,
+            width: '100%',
+            margin: '0 auto',
+            marginTop: 80,
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          {commonRoutes.map((route) => (
+            <Route exact key={route.path} path={route.path}>
+              {route.component}
+            </Route>
+          ))}
+        </div>
       </Switch>
     </Router>
   );

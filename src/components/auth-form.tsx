@@ -33,7 +33,7 @@ export const AuthForm = () => {
     setForm((prev) => ({ ...prev, newAccount: !prev.newAccount }));
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="container">
         <input
           type="email"
           name="email"
@@ -41,6 +41,7 @@ export const AuthForm = () => {
           value={form.email}
           onChange={onChange}
           required
+          className="authInput"
         />
         <input
           type="password"
@@ -49,14 +50,16 @@ export const AuthForm = () => {
           value={form.password}
           onChange={onChange}
           required
+          className="authInput"
         />
         <input
           type="submit"
+          className="authInput authSubmit"
           value={form.newAccount ? 'Create account' : 'sign in'}
         />
-        {form.error}
+        {form.error && <span className="authError">{form.error}</span>}
       </form>
-      <span onClick={toggleAccount}>
+      <span onClick={toggleAccount} className=" authSwitch">
         {form.newAccount ? 'Sign In' : 'Create Account'}
       </span>
     </>
