@@ -11,7 +11,7 @@ const commonRoutes = [
 
 export const LoggedInRouter = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Nav />
       <Switch>
         <div
