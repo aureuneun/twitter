@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Nav } from '../components/nav';
 import { Home } from '../pages/home';
 import { Profile } from '../pages/profile';
@@ -11,7 +11,7 @@ const commonRoutes = [
 
 export const LoggedInRouter = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Nav />
       <Switch>
         <div

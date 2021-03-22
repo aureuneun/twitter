@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Auth } from '../pages/auth';
 
 const commonRoutes = [{ path: '/', component: <Auth /> }];
 
 export const LoggedOutRouter = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Switch>
         <div
           style={{
