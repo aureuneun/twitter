@@ -78,7 +78,7 @@ form {
 }
 
 .logOut {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 /* Nwitter Factory */
@@ -165,11 +165,11 @@ form {
 }
 
 .nweet {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   background-color: white;
   width: 100%;
   max-width: 320px;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   position: relative;
   display: flex;
@@ -182,18 +182,18 @@ form {
 }
 
 .nweet img {
-  right: -10px;
-  top: 25px;
+  right: 10px;
+  top: 20px;
   position: absolute;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
 }
 
 .nweet__actions {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 6px;
 }
 
 .nweet__actions span {
@@ -238,7 +238,6 @@ form {
 
 .authInput {
   max-width: 320px;
-  width: 100%;
   padding: 10px;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 1);
@@ -266,7 +265,7 @@ form {
   color: #04aaff;
   cursor: pointer;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   display: block;
   font-size: 12px;
   text-decoration: underline;

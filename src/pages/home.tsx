@@ -23,13 +23,20 @@ export const Home = () => {
           ...doc.data(),
         }));
         setTweets(tweets);
+        const message = document.getElementById('message');
+        if (message) {
+          message.scrollTop = message.scrollHeight;
+        }
       });
     return () => unsubscribe();
   }, []);
   return (
     <div className="container">
       <TweetFactory />
-      <div style={{ marginTop: 30 }}>
+      <div
+        style={{ marginTop: 30, maxHeight: '38vh', overflow: 'scroll' }}
+        id="message"
+      >
         {tweets.map((tweet) => (
           <Tweet key={tweet.id} {...tweet} />
         ))}
